@@ -20,8 +20,8 @@ class Solution:
             dig = carry + aDigit + bDigit
             carry = dig // 2
             dig = dig % 2
-            ans = str(dig)+ans
-        ans = str(carry)+ans
+            ans = str(dig) + ans
+        ans = str(carry) + ans
         return str(int(ans))
 
 
