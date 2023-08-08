@@ -23,10 +23,4 @@ class Solution:
         
 
 # @lc code=end
-
-# s=Solution()
-# nums = [3,1,4,1,5]; k = 2
-# nums=[1,2,3,4,5]; k = 1
-# nums = [1,3,1,5,4]; k = 0
-# nums=[1,2,4,4,3,3,0,9,2,3]; k=3
-# s.findPairs(nums,k)
+ 
