@@ -7,15 +7,16 @@ from typing import *
 # @lc code=start
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        largest = 0
-        visited={}
-        lidx = 0
-        for ridx in range(len(s)):
-            if s[ridx] in visited and visited[s[ridx]] >= lidx:
-                lidx = visited[s[ridx]]+1
-            else:
-                largest = max(ridx-lidx+1, largest)
-            visited[s[ridx]] = ridx
-        return largest
+        chars = {}
+        res=0
+        l = 0
+        for r in range(len(s)):
+            c = s[r]
+            if c in chars and chars[c] >= l:
+                l = chars[c]+1
+            chars[c] = r
+            res = max(res, r-l+1)
+
+        return res
 # @lc code=end
 
