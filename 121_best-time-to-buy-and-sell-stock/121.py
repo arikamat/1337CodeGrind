@@ -7,12 +7,14 @@ from typing import *
 # @lc code=start
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        maxx = prices[-1]
-        res = 0
-        for i in range(len(prices)-1,-1,-1):
-            maxx = max(prices[i], maxx)
-            res = max(res, maxx-prices[i])
-        return res
+        currMin = float('inf')
+        ans = 0
+        for i in prices:
+            if i < currMin:
+                currMin = i
+            else:
+                ans = max(ans, i-currMin)
+        return ans
 
 # @lc code=end
 
