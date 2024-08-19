@@ -11,19 +11,22 @@ class MinStack:
         self.stk = []
 
     def push(self, val: int) -> None:
-        if len(self.stk)==0:
+        if len(self.stk) ==0:
             self.stk.append((val,val))
         else:
-            self.stk.append((val,min(val,self.getMin())))
+            lastMin = self.stk[-1][1]
+            newMin = min(lastMin,val)
+            self.stk.append((val,newMin))
+
     def pop(self) -> None:
         self.stk.pop()
 
     def top(self) -> int:
-        return self.topNode()[0]
-    def topNode(self):
-        return self.stk[-1]
+        return self.stk[-1][0]
+
     def getMin(self) -> int:
-        return self.topNode()[1]
+        return self.stk[-1][1]
+
         
 
 
