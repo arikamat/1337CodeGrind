@@ -12,19 +12,34 @@ class ListNode:
         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        ct = 0
-        curr = head
-        while curr:
-            ct+=1
-            curr = curr.next
+        # ct = 0
+        # curr = head
+        # while curr:
+        #     ct+=1
+        #     curr = curr.next
         
-        idx = ct-n
-        if idx==0:
-            return head.next
-        curr = head
-        for i in range(idx-1):
+        # idx = ct-n
+        # if idx==0:
+        #     return head.next
+        # curr = head
+        # for i in range(idx-1):
+        #     curr = curr.next
+        # curr.next = curr.next.next
+        # return head
+        curr = head   
+
+        for i in range(n):
             curr = curr.next
-        curr.next = curr.next.next
+
+        prev=None
+        remove=head
+        while curr:
+            prev = remove
+            remove = remove.next
+            curr = curr.next
+        if not prev:
+            return head.next
+        prev.next =remove.next
         return head
 # @lc code=end
 
