@@ -17,22 +17,17 @@ class TreeNode:
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        q = [(0,root)]
-        ans={}
-        if root is None:
-            return []
-        while len(q)>0:
-            level, node = q.pop(0)
-            if node.left is not None:
-                q.append((level+1,node.left))
-            if node.right is not None:
-                q.append((level+1,node.right))
-            if level not in ans:
-                ans[level] = []
-            ans[level].append(node.val)
-        answer=[]
-        for i in ans:
-            answer.append(ans[i])
-        return answer            
+        res=[]
+        def bfs(root, currLevel):
+            
+            if root is None:
+                return
+            while currLevel>len(res)-1:
+                res.append([])
+            res[currLevel].append(root.val)
+            bfs(root.left, currLevel+1)
+            bfs(root.right, currLevel+1)
+        bfs(root,0)
+        return res         
 
 # @lc code=end
